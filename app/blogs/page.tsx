@@ -5,12 +5,14 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import Container from '../components/Container';
 import EmptyState from '../components/EmptyState';
 import { getStaticBlogs } from '../actions/getStaticProps';
+import defaultImage from '../../public/images/default.png'
 
 const Page = () => {
   const router = useRouter();
   const params = useSearchParams();
   const [data, setData] = useState([]);
   const category = params?.get('category');
+  const defaulTitle = 'Title'
 
   useEffect(() => {
     const getData = async () => {
@@ -37,8 +39,8 @@ const Page = () => {
             <div className="flex flex-col gap-1 w-full">
               <div className="aspect-square w-full relative overflow-hidden rounded-xl">
                 <Image
-                  alt={item.title}
-                  src={item.imageSrc}
+                  alt={item.title || defaulTitle}
+                  src={item.imageSrc || defaultImage}
                   className="object-cover h-full w-full group-hover:scale-110 transition-transform duration-300"
                   fill
                 />

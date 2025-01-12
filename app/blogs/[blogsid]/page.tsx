@@ -4,10 +4,13 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Container from '@/app/components/Container';
+import defaultImage from '../../../public/images/default.png'
+
 
 export default function Page() {
   const [data, setData] = useState({});
   const pathname = usePathname();
+   const defaulTitle = 'Title'
 
   useEffect(() => {
     const id = pathname.split('/').pop();
@@ -29,8 +32,8 @@ export default function Page() {
         <h1 className="text-3xl font-bold mb-4 text-center">{data.title}</h1>
         <div className="relative w-full h-64 md:h-96 mb-6">
           <Image
-            alt={data.title}
-            src={data.imageSrc}
+            alt={data.title || defaulTitle  }
+            src={data.imageSrc || defaultImage}
             layout="fill"
             objectFit="cover"
             className="rounded-lg shadow-md"

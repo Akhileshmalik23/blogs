@@ -9,7 +9,7 @@ import { useCallback } from "react";
 
 
 interface UserLogoProps {
-   currentUser?: SafeUser | null;
+   currentUser?: any;
 }
 
 const Logo: React.FC<UserLogoProps> = ({ currentUser }) => {
@@ -20,6 +20,7 @@ const Logo: React.FC<UserLogoProps> = ({ currentUser }) => {
       if (!currentUser) {
          return loginModal.onOpen()
       }
+      router.push('/blogs')
       blogModal.onOpen()
    }, [currentUser, loginModal, blogModal])
    return (
