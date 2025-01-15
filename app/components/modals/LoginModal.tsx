@@ -42,7 +42,7 @@ const LoginModal = () => {
            
             toast.success("Logged in");
             loginModal.onClose();
-            router.push('/blogs')
+            router.refresh()
          }
 
          if (callback?.error) {

@@ -1,4 +1,4 @@
-// fetchBlogs.ts
+
 export const getStaticBlogs = async (category: string | null) => {
     let url = '/api/blogs';
 
